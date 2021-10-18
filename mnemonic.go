@@ -56,7 +56,7 @@ func IsMnemonicValid(lang Language, sentence string) (bool, error) {
 		idx, err := GetIndex(lang, word)
 		if err != nil {
 			fmt.Println(word)
-			return false, err
+			//return false, err
 		}
 		buff.Write(paddingLeft([]byte(strconv.FormatInt(idx, 2))))
 	}
