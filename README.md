@@ -1,4 +1,4 @@
-# Mnemonic v1.0.1
+# Mnemonic v1.0.2
 [![Build Status](https://travis-ci.org/brianium/mnemonic.svg?branch=master)](https://travis-ci.org/brianium/mnemonic)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pepa65/mnemonic)](https://goreportcard.com/report/github.com/pepa65/mnemonic)
 [![GoDoc](https://godoc.org/github.com/brianium/mnemonic?status.svg)](https://godoc.org/github.com/brianium/mnemonic)
@@ -14,7 +14,7 @@
 * Generates human readable sentences and the seeds derived from them.
 * Supports all languages mentioned in the [BIP 39 proposal](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 * Supports ideographic spaces for Japanese language.
-* Forked from github.com/brianium/mnemonic with improvements from github.com/alphaqiu/mnemonic
+* Forked from github.com/brianium/mnemonic
 * Generates the right amount of words
 
 ### Example
