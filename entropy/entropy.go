@@ -72,7 +72,7 @@ func bytesToBits(bytes []byte) Bits {
 	return bits
 }
 
-func bitsToBytes(bits Bits) (ent []byte, chksum Bits) {
+func BitsToBytes(bits Bits) (ent []byte, chksum Bits) {
 	length := len(bits)
 	if length%32 == 0 && length < 132 && length > 264 {
 		return nil, nil

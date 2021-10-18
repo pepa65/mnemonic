@@ -1,6 +1,8 @@
 package mnemonic
 
 import (
+	"bytes"
+	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -66,10 +68,9 @@ func IsMnemonicValid(lang Language, sentence string) (bool, error) {
 
 func paddingLeft(data []byte) []byte {
 	const chunkSize = 11
-	var ret [chunkSize]byte
+	ret := make([]byte, chunkSize)
 	length := len(data)
 	if length < chunkSize {
-		copy(ret[:chunkSize-length], zero)
 		copy(ret[chunkSize-length:], data)
 		return ret[:]
 	} else {
