@@ -1,6 +1,6 @@
 # Mnemonic
 [![Build Status](https://travis-ci.org/brianium/mnemonic.svg?branch=master)](https://travis-ci.org/brianium/mnemonic)
-[![Go Report Card](https://goreportcard.com/badge/github.com/brianium/mnemonic)](https://goreportcard.com/report/github.com/brianium/mnemonic)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pepa65/mnemonic)](https://goreportcard.com/report/github.com/pepa65/mnemonic)
 [![GoDoc](https://godoc.org/github.com/brianium/mnemonic?status.svg)](https://godoc.org/github.com/brianium/mnemonic)
 
 A BIP 39 implementation in Go.
@@ -24,11 +24,11 @@ package main
 
 import (
     "fmt"
-    "github.com/brianium/mnemonic"
+    "github.com/pepa65/mnemonic"
 )
 
 func main() {
-    // generate a random Mnemonic in English with 256 bits of entropy
+    // generate a random Mnemonic in English with 256 bits of entropy (24 words)
     m, _ := mnemonic.NewRandom(256, mnemonic.English)
 
     // print the Mnemonic as a sentence
@@ -57,8 +57,8 @@ package main
 
 import (
     "fmt"
-    "github.com/brianium/mnemonic"
-    "github.com/brianium/mnemonic/entropy"
+    "github.com/pepa65/mnemonic"
+    "github.com/pepa65/mnemonic/entropy"
 )
 
 func main() {
@@ -86,12 +86,12 @@ func main() {
 
 To install Mnemonic, use `go get`:
 
-    go get github.com/brianium/mnemonic
+    go get github.com/pepa65/mnemonic
 
 This will then make the following packages available to you:
 
-    github.com/brianium/mnemonic
-    github.com/brianium/mnemonic/entropy
+    github.com/pepa65/mnemonic
+    github.com/pepa65/mnemonic/entropy
 
 Import the `mnemonic` package into your code using this template:
 
@@ -99,7 +99,7 @@ Import the `mnemonic` package into your code using this template:
 package yours
 
 import (
-  "github.com/brianium/mnemonic"
+  "github.com/pepa65/mnemonic"
 )
 
 func MnemonicJam(passphrase string) {

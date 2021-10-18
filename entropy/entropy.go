@@ -7,6 +7,11 @@ import (
 	"errors"
 )
 
+var (
+	ErrEntropyLengthInvalid = errors.New("entropy length must be 128, 160, 192, 224 or 256 bits")
+	ErrBitsChecksumLength = errors.New("bits and checksum length error")
+)
+
 // Bits represents a byte slice of individual bits
 type Bits []byte
 
@@ -22,7 +27,7 @@ func FromHex(input string) ([]byte, error) {
 // Random creates a random entropy of the given length
 func Random(length int) ([]byte, error) {
 	if length < 128 || length > 256 || length%32 > 0 {
-		return nil, errors.New("Entropy length must 128, 160, 192, 224 or 256")
+		return nil, ErrEntropyLengthInvalid
 	}
 	bytes := make([]byte, length/8)
 	_, err := rand.Read(bytes)
@@ -65,4 +70,25 @@ func bytesToBits(bytes []byte) Bits {
 		}
 	}
 	return bits
+}
+
+func bitsToBytes(bits Bits) (ent []byte, chksum Bits) {
+	length := len(bits)
+	if length%32 == 0 && length < 132 && length > 264 {
+		return nil, nil
+	}
+	chks := length/32
+	bytesLen := (length-chks)/8
+	ent = make([]byte, 0, bytesLen)
+	for k := 0; k < bytesLen; k++ {
+		data := 0
+		for i := 8-1; i >= 0; i-- {
+			if bits[i+8*k] == 49 {
+				data += 1 << (8-i-1)
+			}
+		}
+		ent = append(ent, byte(data))
+	}
+	chksum = bits[length-chks:]
+	return ent, chksum
 }
