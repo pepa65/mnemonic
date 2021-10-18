@@ -1,4 +1,4 @@
-# Mnemonic v1.0.1
+# Mnemonic v1.0.2
 [![Build Status](https://travis-ci.org/brianium/mnemonic.svg?branch=master)](https://travis-ci.org/brianium/mnemonic)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pepa65/mnemonic)](https://goreportcard.com/report/github.com/pepa65/mnemonic)
 [![GoDoc](https://godoc.org/github.com/brianium/mnemonic?status.svg)](https://godoc.org/github.com/brianium/mnemonic)
