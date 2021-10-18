@@ -55,6 +55,7 @@ func IsMnemonicValid(lang Language, sentence string) (bool, error) {
 	for _, word := range words {
 		idx, err := GetIndex(lang, word)
 		if err != nil {
+			fmt.Println(word)
 			return false, err
 		}
 		buff.Write(paddingLeft([]byte(strconv.FormatInt(idx, 2))))
@@ -78,8 +79,7 @@ func paddingLeft(data []byte) []byte {
 	}
 }
 
-// Sentence returns a Mnemonic's word collection as a space separated
-// sentence
+// Sentence returns Mnemonic's words as a space separated sentence
 func (m *Mnemonic) Sentence() string {
 	if m.Language == Japanese {
 		return strings.Join(m.Words, `　`)
