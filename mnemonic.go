@@ -49,6 +49,7 @@ func NewRandom(length int, lang Language) (*Mnemonic, error) {
 	return New(ent, lang)
 }
 
+// IsMnemonicValid tests whether a sentence in a language is valid
 func IsMnemonicValid(lang Language, sentence string) (bool, error) {
 	words := strings.Split(sentence, " ")
 	buff := bytes.NewBuffer(nil)
@@ -74,9 +75,8 @@ func paddingLeft(data []byte) []byte {
 	if length < chunkSize {
 		copy(ret[chunkSize-length:], data)
 		return ret[:]
-	} else {
-		return data[:chunkSize]
 	}
+	return data[:chunkSize]
 }
 
 // Sentence returns Mnemonic's words as a space separated sentence
@@ -87,6 +87,7 @@ func (m *Mnemonic) Sentence() string {
 	return strings.Join(m.Words, " ")
 }
 
+// RecoverFromMnemonic returns a Mnemonic
 func RecoverFromMnemonic(lang Language, sentence string) (m *Mnemonic, err error) {
 	var check bool
 	if check, err = IsMnemonicValid(lang, sentence); err != nil {
