@@ -31,13 +31,14 @@ func main() {
 	// Generate a random mnemonic in English with 256 bits of entropy (24 words)
 	m, _ := M.NewRandom(256, mnemonic.English)
 
-	// Print the mnemonic as a sentence
+	// Print the mnemonic as words on a line
 	fmt.Println(m.Sentence())
-	// Print the underlying words
+	// Print the underlying words in an array
 	fmt.Println(m.Words)
 
-	// Validate the mnemonic
+	// Validate the mnemonic (and print word per line)
 	valid, _ := M.IsMnemonicValid(M.English, m.Sentence())
+	// Print the result of the validation
 	fmt.Println(valid)
 
 	// Generate a hex-encoded seed from the mnemonic based on "passphrase"
